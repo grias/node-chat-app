@@ -1,3 +1,6 @@
-* Join and leave chat via commands
-* Add another style for some events
-* Add room name in header
+* join and leave chat via commands
+* add another style for some events
+* add room name in header
+* make chatroom case senseless
+* make usernames unique
+* add list of currently active chatrooms
