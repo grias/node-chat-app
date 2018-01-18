@@ -1,0 +1,3 @@
+* Join and leave chat via commands
+* Add another style for some events
+* Add room name in header

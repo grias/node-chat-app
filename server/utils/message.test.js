@@ -2,7 +2,7 @@ const expect = require('expect');
 
 const {generateMessage, generateLocationMessage} = require('./message');
 
-describe('generateMessage', () => {
+describe('generateMessage()', () => {
   it('should return correct message object', () => {
     let message = 'Test message';
     let from = 'Just me';
@@ -13,7 +13,7 @@ describe('generateMessage', () => {
   });
 });
 
-describe('generateLocationMessage', () => {
+describe('generateLocationMessage()', () => {
   it('Should generate correct location url', () => {
     let coords = {
       lat: 10.11
