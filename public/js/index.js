@@ -1,13 +1,26 @@
 var socket = io();
 
+
+function scrollToBottom () {
+  // Selectors
+  let messages = $('#messages');
+  let newMessage = messages.children('li:last-child')
+  // Heights
+  let clientHeight = messages.prop('clientHeight');
+  let scrollTop = messages.prop('scrollTop');
+  let scrollHeight = messages.prop('scrollHeight');
+
+  let newMessageHeight = newMessage.innerHeight();
+  let lastMessageHeight = newMessage.prev().innerHeight();
+
+  if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+    messages.scrollTop(scrollHeight);
+  }
+}
+
+
 socket.on('connect', function () {
   console.log('Connected to server');
-
-  // socket.emit('createMessage', {
-  //   from: 'CIA'
-  // , text: 'Ur a big guy'
-  // });
-
 });
 
 socket.on('disconnect', function () {
@@ -24,7 +37,7 @@ socket.on('newMessage', function (message) {
   , formattedTime
   });
   $('#messages').append(html);
-
+  scrollToBottom();
 });
 
 
@@ -37,6 +50,7 @@ socket.on('newLocationMessage', function (message) {
   , formattedTime
   });
   $('#messages').append(html);
+  scrollToBottom();
 });
 
 
